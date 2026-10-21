@@ -20,6 +20,6 @@ void    matrix_print(const Matrix *m);
 
 /* "Valid" 2D convolution, stride 1, no padding.
  * Returns NULL on allocation failure or if kernel > input. */
-Matrix *mat_conv2d(const Matrix *in, const Matrix *k);
+Matrix *matrix_conv2d(const Matrix *input, const Matrix *kernel);
 
-#endif //
+#endif // MATRIX_H

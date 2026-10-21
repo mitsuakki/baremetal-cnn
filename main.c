@@ -17,8 +17,19 @@ int main(void)
     for (size_t i = 0;i < 9; i++)
         kernel->data[i] = kdata[i];
 
-    matrix_print(image);
+    Matrix *out = matrix_conv2d(image, kernel);
+    if (!out)
+    {
+        fprintf(stderr, "convolution failed\n");
+        return 1;
+    }
+
+    puts("Input:");  matrix_print(image);
+    puts("Kernel:"); matrix_print(kernel);
+    puts("Output:"); matrix_print(out);
 
     matrix_free(image);
     matrix_free(kernel);
+
+    matrix_free(out);
 }
